@@ -1,0 +1,64 @@
+{
+    "nombre": "Julieta",
+    "apellido": "Rosende",
+    "presentacion": "Soy fan de la computadora, la tecnología, las fotografías, la naturaleza... Prolija, obse, detallista. Doy lo mejor de mí en cada cosa que hago. Considero que el trabajo en equipo es la clave, por lo que disfruto de trabajar y propiciar un liviano y cómodo clima laboral. Trabajé muchos años en el área de Tecnología por lo que conozco desde adentro este apasionante mundo.",
+	"imagen":"assets/img/Rosende.jpg",
+    "experiencia": [   
+        {
+            "id":1,
+            "imagen":"assets/img/compumagia.jpg",
+            "empresa":"Mercado Libre Mercado Libre SRL",
+            "puesto": "Analista ssr IT",
+            "duracion":"5 años",
+            "inicio":"2013",
+            "fin":"2018"
+        },
+        {
+            "id":2,
+            "imagen":"",
+            "empresa":"Neosur SA",
+            "puesto": "",
+            "duracion":"4 años",
+            "inicio":"2008",
+            "fin":"2012"
+        }      
+    ],
+    "formacion": [
+        {
+            "id":1,
+            "descripcion":"Estudios en curso",
+            "institucion": "UTN FRC",
+            "titulo":"Ingeniería en Sistemas de Información",
+            "duracion":""
+        },
+        {
+            "id":2,
+            "descripcion":"Curso Argentina Programa 4.0",
+            "institucion": "Inti Ministerio de Desarrollo",
+            "titulo":"Programador web full stack jr",
+            "duracion":""
+        }         
+    ],
+    "aptitudes": [
+        {"ap": "Web Services API"},
+        {"ap": "Soporte técnico"},
+        {"ap": "Soporte API"},
+        {"ap": "Testing"},
+        {"ap": "Administración de incidencias/gestión de bugs"},
+        {"ap": "Planificación, gestión y ejecución de casos de prueba"},
+        {"ap": "Gestión Operativa"},
+        {"ap": "Documentación técnica"}
+    ],        
+    "idioma": [
+        {
+            "id":1,
+            "idioma":"Inglés",
+            "nivel": "Nivel A1 (MCER)"
+        },
+        {
+            "id":2,
+            "idioma":"Portugués",
+            "nivel": "Nivel A2-B1.1 (MCER)"
+        }         
+    ]
+}
