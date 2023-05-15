@@ -28,9 +28,6 @@ import { ModalAptitudesComponent } from './modales/modal-aptitudes/modal-aptitud
 import { ModalPresentacionComponent } from './modales/modal-presentacion/modal-presentacion.component';
 import { ModalIdiomaComponent } from './modales/modal-idioma/modal-idioma.component';
 import { ModalFotoComponent } from './modales/modal-foto/modal-foto.component';
-import { ModalEliminarComponent } from './modales/modal-eliminar/modal-eliminar.component'
-
-
 
 @NgModule({
   declarations: [
@@ -57,8 +54,7 @@ import { ModalEliminarComponent } from './modales/modal-eliminar/modal-eliminar.
     ModalAptitudesComponent,
     ModalPresentacionComponent,
     ModalIdiomaComponent,
-    ModalFotoComponent,
-    ModalEliminarComponent
+    ModalFotoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/servicios/data.service';
-
+import { Idioma } from 'src/app/model/idioma';
+import { IdiomaService } from 'src/app/servicios/idioma.service';
 
 @Component({
   selector: 'app-idioma',
   templateUrl: './idioma.component.html'
 })
 export class IdiomaComponent implements OnInit{
-  idiomaList: any = [];
-  constructor(private datosPortfolio:DataService) { }
+  idiomas: Idioma[]=[]; 
+  idioma?: number;
+
+  constructor(private sIdioma: IdiomaService) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.getDatos().subscribe(data =>{
-      this.idiomaList=data.idioma;
-    })
+    this.cargarIdioma();
   }
+
+  cargarIdioma():void{
+    this.sIdioma.verIdiomas().subscribe(data => {this.idiomas=data});
+  }
+
 }

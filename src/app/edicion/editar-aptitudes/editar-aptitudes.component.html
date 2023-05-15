@@ -1,21 +1,26 @@
 <section id="aptitudes" class="about">
   <div class="container text-center">
+
     <div class="row">
       <div class="col-8 mt-4">
-        <h3>Conocimientos y aptitudes</h3>
-        <div *ngFor="let aptit of aptitudesList">
-          <h6 class="wt-0 pt-0">
-            {{ aptit.ap }}
-          </h6>
-        </div>
-        <div class="col-1 mt-2 container text-center">
-          <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-aptitudes"></i></div>
-          <div><i class="fa-solid fa-trash text-black" type="button" data-bs-toggle="modal" data-bs-target="#eliminar"></i></div>
-        </div>
-        <!-- Modal editar y eliminar aptitudes-->
+        <h3>Conocimientos y aptitudes</h3><i class="fa-solid fa-plus text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-aptitudes"></i>
         <app-modal-aptitudes></app-modal-aptitudes>
-        <app-modal-eliminar></app-modal-eliminar>
-        <!-- FIN Modales-->
+        <div *ngFor="let aptitud of aptitudes">
+          <div class="row">
+            <div class="col-11 mt-3" >
+              <h6 class="wt-1 pt-2">
+                {{ aptitud.aptitud }}
+              </h6>
+            </div>
+        
+            <div class="col-1 mt-2 container text-center">
+              <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-aptitudes"></i></div>
+              <!-- Modal editar y eliminar aptitudes-->
+              <app-modal-aptitudes></app-modal-aptitudes>
+              <div><i class="fa-solid fa-xmark text-black btn-close" type="button" (click)="eliminarAptitudes(aptitud.id)"></i></div>
+            </div>
+          </div>
+        </div>  
       </div>
       <div class="col-lg-4">
         <img src="assets/img/conocimientos.jpg" class="img-thumbnail img-fluid" alt="..." title="...">

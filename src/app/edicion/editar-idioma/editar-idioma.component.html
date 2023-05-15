@@ -1,24 +1,29 @@
 <section id="idioma" class="about">
   <div class="container text-center">
+
     <div class="row">
       <div class="col-lg-4">
         <img src="assets/img/idioma.png" class="img-thumbnail img-fluid" alt="..." title="...">
       </div>  
+
       <div class="col-8 mt-4">
-        <h3>Idioma</h3>
-        <div *ngFor="let idi of idiomaList">
-          <h6 class="wt-1 pt-2">
-            {{ idi.idioma }} - {{ idi.nivel }}
-          </h6>
-        </div>
-        <div class="col-1 mt-2 container text-center">
-          <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-idioma"></i></div>
-          <div><i class="fa-solid fa-trash text-black" type="button" data-bs-toggle="modal" data-bs-target="#eliminar"></i></div>
-        </div>
-        <!-- Modal editar y eliminar idioma-->
+        <h3>Idioma</h3><i class="fa-solid fa-plus text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-idioma"></i>
         <app-modal-idioma></app-modal-idioma>
-        <app-modal-eliminar></app-modal-eliminar>
-        <!-- FIN Modales-->
+        <div *ngFor="let idioma of idiomas">
+          <div class="row">
+            <div class="col-11 mt-3" >
+              <h6 class="wt-1 pt-2">
+                {{ idioma.idioma }} - {{ idioma.nivel }}
+              </h6>
+            </div>
+            <div class="col-1 mt-2 container text-center">
+              <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-idioma"></i></div>
+              <!-- Modal editar y eliminar idioma-->
+              <app-modal-idioma></app-modal-idioma>
+              <div><i class="fa-solid fa-xmark text-black btn-close" type="button" (click)="eliminarIdioma(idioma.id)"></i></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

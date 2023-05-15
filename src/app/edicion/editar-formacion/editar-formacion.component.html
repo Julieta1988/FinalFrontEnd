@@ -1,24 +1,29 @@
 <section id="formacion" class="about">
   <div class="container text-center">
+
     <div class="row">
       <div class="col-lg-4">
         <img src="assets/img/6208947.jpg" class="img-thumbnail img-fluid" alt="..." title="...">
       </div>  
+
       <div class="col-8 mt-4">
-        <h3>Formación académica</h3>
-        <div *ngFor="let fromac of formacionList">
-          <h6 class="wt-1 pt-2">
-            {{ fromac.descripcion }} - {{ fromac.institucion }} - {{ fromac.titulo }}
-          </h6>
-        </div>
-        <div class="col-1 mt-2 container text-center">
-          <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-formacion"></i></div>
-          <div><i class="fa-solid fa-trash text-black" type="button" data-bs-toggle="modal" data-bs-target="#eliminar"></i></div>
-        </div>
-        <!-- Modal editar y eliminar formacion-->
+        <h3>Formación académica</h3><i class="fa-solid fa-plus text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-formacion"></i>
         <app-modal-formacion></app-modal-formacion>
-        <app-modal-eliminar></app-modal-eliminar>
-        <!-- FIN Modales-->
+        <div *ngFor="let formacion of formaciones">
+          <div class="row">
+            <div class="col-11 mt-3" >
+              <h6 class="wt-1 pt-2">
+                {{ formacion.descripcion }} - {{ formacion.institucion }} - {{ formacion.titulo }}
+              </h6>
+            </div>
+            <div class="col-1 mt-2 container text-center">
+              <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-formacion"></i></div>
+              <!-- Modal editar y eliminar formacion-->
+              <app-modal-formacion></app-modal-formacion>
+              <div><i class="fa-solid fa-xmark text-black btn-close" type="button" (click)="eliminarFormacion(formacion.id)"></i></div>
+            </div>
+          </div>  
+        </div>
       </div>
     </div>
   </div>

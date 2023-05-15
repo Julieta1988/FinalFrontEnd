@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/servicios/data.service';
+import { Formacion } from 'src/app/model/formacion';
+import { FormacionService } from 'src/app/servicios/formacion.service';
 
 @Component({
   selector: 'app-formacion',
   templateUrl: './formacion.component.html'
 })
 export class FormacionComponent implements OnInit{
-  formacionList: any = [];
-  constructor(private datosPortfolio:DataService) { }
+  formaciones: Formacion[]=[]; 
+  formacion?: number;
+
+  constructor(private sFormacion: FormacionService) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.getDatos().subscribe(data =>{
-      this.formacionList=data.formacion;
-    })
+    this.cargarFormacion();
   }
-} 
+
+  cargarFormacion():void{
+    this.sFormacion.verFormaciones().subscribe(data => {this.formaciones=data});
+  }
+
+}

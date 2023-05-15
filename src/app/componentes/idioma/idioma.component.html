@@ -1,14 +1,16 @@
 <section id="idioma" class="about">
   <div class="container text-center">
+
     <div class="row">
       <div class="col-lg-4">
         <img src="assets/img/idioma.png" class="img-thumbnail img-fluid" alt="..." title="...">
       </div>  
+      
       <div class="col-8 mt-4">
         <h3>Idioma</h3>
-        <div *ngFor="let idi of idiomaList">
+        <div *ngFor="let idioma of idiomas">
           <h6 class="wt-1 pt-2">
-            {{ idi.idioma }} - {{ idi.nivel }}
+            {{ idioma.idioma }} - {{ idioma.nivel }}
           </h6>
         </div>
       </div>

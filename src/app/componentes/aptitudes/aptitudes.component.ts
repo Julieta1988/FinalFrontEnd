@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/servicios/data.service';
+import { Aptitudes } from 'src/app/model/aptitudes';
+import { AptitudesService } from 'src/app/servicios/aptitudes.service';
 
 @Component({
   selector: 'app-aptitudes',
   templateUrl: './aptitudes.component.html'
 })
 export class AptitudesComponent implements OnInit{
-  aptitudesList: any = [];
-  constructor(private datosPortfolio:DataService) { }
+  aptitudes: Aptitudes[]=[]; 
+  aptitud?: number;
+
+  constructor(private sAptitudes: AptitudesService) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.getDatos().subscribe(data =>{
-      this.aptitudesList=data.aptitudes;
-    })
-  } 
+    this.cargarAptitudes();
+  }
+
+  cargarAptitudes():void{
+    this.sAptitudes.verAptitudes().subscribe(data => {this.aptitudes=data});
+  }
+
 }

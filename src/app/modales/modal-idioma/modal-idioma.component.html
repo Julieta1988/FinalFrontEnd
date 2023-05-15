@@ -1,21 +1,47 @@
 <div class="modal fade" id="modal-idioma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
+      
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Idioma</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <textarea class="form-control" id="message-text"></textarea>
+
+        <form [formGroup]="form" (ngSubmit)="form.valid && onCreate()" name="idiomasForm">
+          <div class="modal-body">
+          
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                <label for="idiomaIdioma" class="col-form-label">Idioma</label>
+              </div>
+              <div class="col-auto">
+                <input type="text" class="form-control" id="idiomaIdioma" formControlName="idioma" [(ngModel)] = "idioma" [ngClass]="{'is-invalid': Idioma?.errors && Idioma?.touched, 'is-valid': !Idioma?.errors && Idioma?.touched}">
+              </div>
+              <div *ngIf="Idioma?.errors && Idioma?.touched">
+                <p *ngIf="Idioma?.hasError('required')" class="text-danger"> El Idioma es requerida </p>
+              </div>
             </div>
-          </form>
-        </div>
+  
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                <label for="idiomaNivel" class="col-form-label">Nivel</label>
+              </div>
+              <div class="col-auto">
+                <input type="text" class="form-control" id="idiomaNivel" formControlName="nivel" [(ngModel)] = "nivel" [ngClass]="{'is-invalid': Nivel?.errors && Nivel?.touched, 'is-valid': !Nivel?.errors && Nivel?.touched}">
+              </div>
+              <div *ngIf="Nivel?.errors && Nivel?.touched">
+                <p *ngIf="Nivel?.hasError('required')" class="text-danger"> El Nivel es requerida </p>
+              </div>
+            </div>
+
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
+          <button type="submit" class="btn btn-primary"data-bs-dismiss="modal">Guardar</button>
         </div>
+
+        </div>
+      </form>
+
       </div>
     </div>
 </div>

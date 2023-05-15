@@ -1,17 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/servicios/data.service';
+import { Formacion } from 'src/app/model/formacion';
+import { FormacionService} from 'src/app/servicios/formacion.service';
+
 
 @Component({
   selector: 'app-editar-formacion',
   templateUrl: './editar-formacion.component.html'
 })
 export class EditarFormacionComponent implements OnInit{
-  formacionList: any = [];
-  constructor(private datosPortfolio:DataService) { }
+  formaciones: Formacion[]=[]; 
+  formacion?: number;
+
+  constructor(private sFormacion: FormacionService) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.getDatos().subscribe(data =>{
-      this.formacionList=data.formacion;
-    })
+    this.cargarFormacion();
   }
-} 
+
+  cargarFormacion():void{
+    this.sFormacion.verFormaciones().subscribe(data => {this.formaciones=data});
+  }
+
+  editarFormacion(id:number){
+    this.formacion = id;
+  }
+
+  eliminarFormacion(id:number){
+    if(id != undefined){
+      this.sFormacion.eliminarFormacion(id).subscribe(data => {
+        this.cargarFormacion();  
+      }, err => {
+          window.location.reload();
+        }
+        );
+    } 
+  }
+
+}
