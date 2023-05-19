@@ -4,10 +4,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Formación académica</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="limpiar()"></button>
         </div>
 
-        <form [formGroup]="form" (ngSubmit)="form.valid && onCreate()" name="formacionesForm">
+        <form [formGroup]="form" name="formacionesForm">
           <div class="modal-body">
 
           <div class="row g-3 align-items-center">
@@ -48,7 +48,7 @@
       
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
-          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="onEnviar($event)">Guardar</button>
         </div> 
       
       </div>

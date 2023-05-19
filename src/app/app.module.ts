@@ -27,7 +27,6 @@ import { EdicionComponent } from './edicion/edicion/edicion.component';
 import { ModalAptitudesComponent } from './modales/modal-aptitudes/modal-aptitudes.component';
 import { ModalPresentacionComponent } from './modales/modal-presentacion/modal-presentacion.component';
 import { ModalIdiomaComponent } from './modales/modal-idioma/modal-idioma.component';
-import { ModalFotoComponent } from './modales/modal-foto/modal-foto.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +52,7 @@ import { ModalFotoComponent } from './modales/modal-foto/modal-foto.component';
     EdicionComponent,
     ModalAptitudesComponent,
     ModalPresentacionComponent,
-    ModalIdiomaComponent,
-    ModalFotoComponent
+    ModalIdiomaComponent
   ],
   imports: [
     BrowserModule,

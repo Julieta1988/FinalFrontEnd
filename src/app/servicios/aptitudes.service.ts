@@ -7,7 +7,7 @@ import { Aptitudes } from '../model/aptitudes';
   providedIn: 'root'
 })
 export class AptitudesService {
-  url= "http://localhost:8080/aptitudes"
+  url= "https://finalbackend-flrz.onrender.com/aptitudes"
   
   constructor(private httpClient:HttpClient) { }
 

@@ -7,7 +7,7 @@ import { Experiencia } from '../model/experiencia';
   providedIn: 'root'
 })
 export class ExperienciaService {
-  url= "http://localhost:8080/experiencia"
+  url= "https://finalbackend-flrz.onrender.com/experiencia"
   
   constructor(private httpClient:HttpClient) { }
 
@@ -24,13 +24,13 @@ export class ExperienciaService {
   }
 
   
-  // public editarExperiencia(id: number, experiencia:Experiencia): Observable<any> {
-  //   return this.httpClient.put<any>(this.url + `/editar/${id}`, experiencia)
-  // }
-
-  public editarExperiencia(experiencia:Experiencia): Observable<any> {
-    return this.httpClient.put<any>(this.url + '/editar', experiencia)
+  public editarExperiencia(id: number, experiencia:Experiencia): Observable<any> {
+    return this.httpClient.put<any>(this.url + `/editar/${id}`, experiencia)
   }
+
+  // public editarExperiencia(experiencia:Experiencia): Observable<any> {
+  //   return this.httpClient.put<any>(this.url + '/editar', experiencia)
+  // }
 
   public eliminarExperiencia(id:number): Observable<any> {
     return this.httpClient.delete<any>(this.url + `/eliminar/${id}`)

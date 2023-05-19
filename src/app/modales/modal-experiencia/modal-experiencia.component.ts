@@ -16,7 +16,7 @@ export class ModalExperienciaComponent implements OnInit{
   fin = '';
 
   constructor(private formBuilder: FormBuilder, private sExperiencia: ExperienciaService){  
-    this.form=this.form=this.formBuilder.group({
+    this.form=this.formBuilder.group({
       empresa:['',[Validators.required]],
       puesto:['',[Validators.required]],
       duracion:['',[Validators.required]],
@@ -69,11 +69,11 @@ export class ModalExperienciaComponent implements OnInit{
   }
 
 
-  onCreate():void{
+   onCreate():void{
     const expe = new Experiencia (this.empresa,this.puesto, this.duracion, this.inicio, this.fin);
     this.sExperiencia.agregarExperiencia(expe).subscribe(
-      data=>{alert("Experiencia agregada");},
-      err =>{window.location.reload();}
+      data=>{alert("Experiencia agregada");window.location.reload();},
+      err =>{this.form.reset()}
     )
   }
 
@@ -82,9 +82,12 @@ export class ModalExperienciaComponent implements OnInit{
   }
   
   onEnviar(event:Event){
-    event.preventDefault;
-    if (this.form.valid){
+    event.preventDefault();
+    if (this.form.valid)
+    {
       this.onCreate();
+      window.location.reload();
+      alert("Experiencia agregada");
     }else{
       alert("falló la carga, intente de nuevo");
       this.form.markAllAsTouched();

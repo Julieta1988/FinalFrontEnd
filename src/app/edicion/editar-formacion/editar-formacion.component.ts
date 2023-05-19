@@ -25,15 +25,34 @@ export class EditarFormacionComponent implements OnInit{
     this.formacion = id;
   }
 
+
   eliminarFormacion(id:number){
     if(id != undefined){
       this.sFormacion.eliminarFormacion(id).subscribe(data => {
-        this.cargarFormacion();  
+        window.location.reload();
       }, err => {
           window.location.reload();
         }
         );
     } 
   }
+
+  // eliminarFormacion(id:number){
+  //   if(id != undefined){
+  //     this.sFormacion.eliminarFormacion(id).subscribe(data => {
+  //       this.cargarFormacion();  
+  //     }, err => {
+  //         window.location.reload();
+  //       }
+  //       );
+  //   } 
+  // }
+
+  // eliminarFormacion(id:number){
+  //   this.sFormacion.eliminarFormacion(id).subscribe(data => {
+  //     window.location.reload();
+  //     alert("Formacion eliminada");
+  //     });
+  //   } 
 
 }

@@ -5,6 +5,17 @@
     "correo": "julietarosende@gmail.com",
     "presentacion": "Soy fan de la computadora, la tecnología, las fotografías, la naturaleza... Prolija, detallista, doy lo mejor de mí en cada cosa que hago. Considero que el trabajo en equipo es la clave, por lo que disfruto de trabajar y propiciar un liviano y cómodo clima laboral. Trabajé muchos años en el área de Tecnología por lo que conozco desde adentro este apasionante mundo.",
 	"imagen":"assets/img/Rosende.jpg",
+    
+    "persona": [   
+        {
+            "id":1,
+            "nombre":"Julieta Rosende",
+            "imagen":"assets/img/Rosende.jpg",
+            "presentacion": "Soy fan de la computadora, la tecnología, las fotografías, la naturaleza... Prolija, detallista, doy lo mejor de mí en cada cosa que hago. Considero que el trabajo en equipo es la clave, por lo que disfruto de trabajar y propiciar un liviano y cómodo clima laboral. Trabajé muchos años en el área de Tecnología por lo que conozco desde adentro este apasionante mundo."
+	
+        }
+    ],
+    
     "experiencia": [   
         {
             "id":1,
@@ -38,14 +49,14 @@
         }         
     ],
     "aptitudes": [
-        {"ap": "Web Services API"},
-        {"ap": "Soporte técnico"},
-        {"ap": "Soporte API"},
-        {"ap": "Testing"},
-        {"ap": "Administración de incidencias/gestión de bugs"},
-        {"ap": "Planificación, gestión y ejecución de casos de prueba"},
-        {"ap": "Gestión Operativa"},
-        {"ap": "Documentación técnica"}
+        {"aptitud": "Web Services API"},
+        {"aptitud": "Soporte técnico"},
+        {"aptitud": "Soporte API"},
+        {"aptitud": "Testing"},
+        {"aptitud": "Administración de incidencias/gestión de bugs"},
+        {"aptitud": "Planificación, gestión y ejecución de casos de prueba"},
+        {"aptitud": "Gestión Operativa"},
+        {"aptitud": "Documentación técnica"}
     ],        
     "idioma": [
         {

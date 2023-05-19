@@ -13,7 +13,7 @@ export class ModalIdiomaComponent implements OnInit{
   nivel = '';
 
   constructor(private formBuilder: FormBuilder, private sIdioma: IdiomaService){  
-    this.form=this.form=this.formBuilder.group({
+    this.form=this.formBuilder.group({
       idioma:['',[Validators.required]],
       nivel:['',[Validators.required]]
       })
@@ -40,8 +40,8 @@ export class ModalIdiomaComponent implements OnInit{
 
 
   onCreate():void{
-    const expe = new Idioma (this.idioma,this.nivel);
-    this.sIdioma.agregarIdioma(expe).subscribe(
+    const idio = new Idioma (this.idioma,this.nivel);
+    this.sIdioma.agregarIdioma(idio).subscribe(
       data=>{alert("Idioma agregada");},
       err =>{window.location.reload();}
     )

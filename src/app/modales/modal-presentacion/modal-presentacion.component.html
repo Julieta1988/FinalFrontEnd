@@ -1,4 +1,64 @@
 <div class="modal fade" id="modal-presentacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Presentación</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form [formGroup]="form" (ngSubmit)="form.valid && onCreate()" name="formacionesForm">
+
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <label for="PersonaNombre" class="col-form-label">Nombre y Apellido</label>
+            </div>
+            <div class="col-auto">
+              <input class="form-control" id="message-text" placeholder = "Nombre completo" formControlName="sescipcion" [(ngModel)] = "nombre" [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid': !Nombre?.errors && Nombre?.touched}">
+            </div>
+            <div *ngIf="Nombre?.errors && Nombre?.touched">
+              <p *ngIf="Nombre?.hasError('required')" class="text-danger"> Nombre y Apellido es requerido </p>
+            </div>
+          </div>
+
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <label for="PersonaPresentacion" class="col-form-label">Presentacion personal</label>
+            </div>
+            <div class="col-auto">
+              <textarea class="form-control" id="message-text" placeholder = "URL de la foto de perfil" formControlName="sescipcion" [(ngModel)] = "presentacion" [ngClass]="{'is-invalid': Presentacion?.errors && Presentacion?.touched, 'is-valid': !Presentacion?.errors && Presentacion?.touched}"></textarea>
+            </div>
+            <div *ngIf="Presentacion?.errors && Presentacion?.touched">
+              <p *ngIf="Presentacion?.hasError('required')" class="text-danger"> La Presentación es requerida </p>
+            </div>
+          </div>
+        
+
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <label for="PersonaImagen" class="col-form-label">Imagen de Perfl</label>
+            </div>
+            <div class="col-auto">
+              <input type="text" class="form-control" id="personaImagen" placeholder = "URL de la foto de perfil" formControlName="imagen" [(ngModel)] = "imagen" [ngClass]="{'is-invalid': Imagen?.errors && Imagen?.touched, 'is-valid': !Imagen?.errors && Imagen?.touched}">
+            </div>
+            <div *ngIf="Imagen?.errors && Imagen?.touched">
+              <p *ngIf="Imagen?.hasError('required')" class="text-danger"> La Foto de Perfil es requerida </p>
+            </div>
+          </div>
+
+
+        </form>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="modal fade" id="modal-presentacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -18,4 +78,4 @@
         </div>
       </div>
     </div>
-</div>
+</div> -->

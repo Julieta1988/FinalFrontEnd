@@ -1,84 +1,95 @@
 <div class="modal fade" id="modal-experiencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <!--  (ngSubmit)="onEnviar($event)" -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Experiencia Laboral</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="limpiar()"></button>
-        </div>
-        
-        <form [formGroup]="form" (ngSubmit)="form.valid && onCreate()" name="experienciasForm">
-            <div class="modal-body">
+  <div class="modal-dialog">
+    <!--  (ngSubmit)="onEnviar($event)" -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Experiencia Laboral</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="limpiar()"></button>
+      </div>
 
-            <div class="row g-3 align-items-center">
-              <div class="col-auto">
-                <label for="experienciaEmpresa" class="col-form-label">Empresa</label>
-              </div>
-              <div class="col-auto">
-                <input type="text" class="form-control" id="experienciaEmpresa" placeholder = "Nombre de la empresa" formControlName="empresa" [(ngModel)] = "empresa" [ngClass]="{'is-invalid': Empresa?.errors && Empresa?.touched, 'is-valid': !Empresa?.errors && Empresa?.touched}">
-              </div>
-              <div *ngIf="Empresa?.errors && Empresa?.touched">
-                <p *ngIf="Empresa?.hasError('required')" class="text-danger"> La Empresa es requerida </p>
-              </div>
-            </div>
+      <form [formGroup]="form" name="experienciasForm">
+        <div class="modal-body">
 
-            <div class="row g-3 align-items-center">
-              <div class="col-auto">
-                <label for="experienciaPuesto" class="col-form-label">Puesto</label>
-              </div>
-              <div class="col-auto">
-                <input type="text" class="form-control" id="experienciaPuesto" placeholder = "Puesto laboral" formControlName="puesto" [(ngModel)] = "puesto" [ngClass]="{'is-invalid': Puesto?.errors && Puesto?.touched, 'is-valid': !Puesto?.errors && Puesto?.touched}">
-              </div>
-              <div *ngIf="Puesto?.errors && Puesto?.touched">
-                <p *ngIf="Puesto?.hasError('required')" class="text-danger"> El Puesto laboral es requerido </p>
-              </div>
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <label for="experienciaEmpresa" class="col-form-label">Empresa</label>
             </div>
+            <div class="col-auto">
+              <input type="text" class="form-control" id="experienciaEmpresa" placeholder="Nombre de la empresa"
+                formControlName="empresa" [(ngModel)]="empresa"
+                [ngClass]="{'is-invalid': Empresa?.errors && Empresa?.touched, 'is-valid': !Empresa?.errors && Empresa?.touched}">
+            </div>
+            <div *ngIf="Empresa?.errors && Empresa?.touched">
+              <p *ngIf="Empresa?.hasError('required')" class="text-danger"> La Empresa es requerida </p>
+            </div>
+          </div>
 
-            <div class="row g-3 align-items-center">
-              <div class="col-auto">
-                <label for="experienciaDuracion" class="col-form-label">Duración</label>
-              </div>
-              <div class="col-auto">
-                <input type="text" class="form-control" id="experienciaDuracion" placeholder = "Cuánto tiempo duró esta experiencia" formControlName="duracion" [(ngModel)] = "duracion" [ngClass]="{'is-invalid': Duracion?.errors && Duracion?.touched, 'is-valid': !Duracion?.errors && Duracion?.touched}">
-              </div>
-              <div *ngIf="Duracion?.errors && Duracion?.touched">
-                <p *ngIf="Duracion?.hasError('required')" class="text-danger"> La duración de esta experiencia es requerida </p>
-              </div>
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <label for="experienciaPuesto" class="col-form-label">Puesto</label>
             </div>
+            <div class="col-auto">
+              <input type="text" class="form-control" id="experienciaPuesto" placeholder="Puesto laboral"
+                formControlName="puesto" [(ngModel)]="puesto"
+                [ngClass]="{'is-invalid': Puesto?.errors && Puesto?.touched, 'is-valid': !Puesto?.errors && Puesto?.touched}">
+            </div>
+            <div *ngIf="Puesto?.errors && Puesto?.touched">
+              <p *ngIf="Puesto?.hasError('required')" class="text-danger"> El Puesto laboral es requerido </p>
+            </div>
+          </div>
 
-            <div class="row g-3 align-items-center">
-              <div class="col-auto">
-                <label for="experienciaInicio" class="col-form-label">Inicio</label>
-              </div>
-              <div class="col-auto">
-                <input type="text" class="form-control" id="experienciaInicio" placeholder = "Fecha de inicio de esta experiencia" formControlName="inicio" [(ngModel)] = "inicio" [ngClass]="{'is-invalid': Inicio?.errors && Inicio?.touched, 'is-valid': !Inicio?.errors && Inicio?.touched}">
-              </div>
-              <div *ngIf="Inicio?.errors && Inicio?.touched">
-                <p *ngIf="Inicio?.hasError('required')" class="text-danger"> La fecha de inicio es requerida </p>
-              </div>
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <label for="experienciaDuracion" class="col-form-label">Duración</label>
             </div>
+            <div class="col-auto">
+              <input type="text" class="form-control" id="experienciaDuracion"
+                placeholder="Cuánto tiempo duró esta experiencia" formControlName="duracion" [(ngModel)]="duracion"
+                [ngClass]="{'is-invalid': Duracion?.errors && Duracion?.touched, 'is-valid': !Duracion?.errors && Duracion?.touched}">
+            </div>
+            <div *ngIf="Duracion?.errors && Duracion?.touched">
+              <p *ngIf="Duracion?.hasError('required')" class="text-danger"> La duración de esta experiencia es
+                requerida </p>
+            </div>
+          </div>
 
-            <div class="row g-3 align-items-center">
-              <div class="col-auto">
-                <label for="experienciaFin" class="col-form-label">Fin</label>
-              </div>
-              <div class="col-auto">
-                <input type="text" class="form-control" id="experienciaFin" placeholder = "Fecha de fin de esta experiencia" formControlName="fin" [(ngModel)] = "fin" [ngClass]="{'is-invalid': Fin?.errors && Fin?.touched, 'is-valid': !Fin?.errors && Fin?.touched}">
-              </div>
-              <div *ngIf="Fin?.errors && Fin?.touched">
-                <p *ngIf="Fin?.hasError('required')" class="text-danger"> La fecha de finalización es requerida </p>
-              </div>
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <label for="experienciaInicio" class="col-form-label">Inicio</label>
             </div>
-        
+            <div class="col-auto">
+              <input type="text" class="form-control" id="experienciaInicio" placeholder="Año de inicio"
+                formControlName="inicio" [(ngModel)]="inicio"
+                [ngClass]="{'is-invalid': Inicio?.errors && Inicio?.touched, 'is-valid': !Inicio?.errors && Inicio?.touched}">
+            </div>
+            <div *ngIf="Inicio?.errors && Inicio?.touched">
+              <p *ngIf="Inicio?.hasError('required')" class="text-danger"> La fecha de inicio es requerida </p>
+            </div>
+          </div>
+
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <label for="experienciaFin" class="col-form-label">Fin</label>
+            </div>
+            <div class="col-auto">
+              <input type="text" class="form-control" id="experienciaFin" placeholder="Año de finalización"
+                formControlName="fin" [(ngModel)]="fin"
+                [ngClass]="{'is-invalid': Fin?.errors && Fin?.touched, 'is-valid': !Fin?.errors && Fin?.touched}">
+            </div>
+            <div *ngIf="Fin?.errors && Fin?.touched">
+              <p *ngIf="Fin?.hasError('required')" class="text-danger"> La fecha de finalización es requerida </p>
+            </div>
+          </div>
+
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="onEnviar($event)">Guardar</button>
           </div> 
         
         </div>
-        </form>
+      </form>
 
         
-      </div>
     </div>
   </div>
+</div>

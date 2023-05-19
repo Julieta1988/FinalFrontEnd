@@ -14,7 +14,7 @@ export class ModalFormacionComponent implements OnInit {
   titulo = '';
 
   constructor(private formBuilder: FormBuilder, private sFormacion: FormacionService){  
-    this.form=this.form=this.formBuilder.group({
+    this.form=this.formBuilder.group({
       descripcion:['',[Validators.required]],
       institucion:['',[Validators.required]],
       titulo:['',[Validators.required]]
@@ -50,10 +50,10 @@ export class ModalFormacionComponent implements OnInit {
   }
 
   onCreate():void{
-    const expe = new Formacion (this.descripcion,this.institucion, this.titulo);
-    this.sFormacion.agregarFormacion(expe).subscribe(
-      data=>{alert("Formacion agregada");},
-      err =>{window.location.reload();}
+    const form = new Formacion (this.descripcion,this.institucion, this.titulo);
+    this.sFormacion.agregarFormacion(form).subscribe(
+      data=>{alert("Formacion agregada");window.location.reload();},
+      err =>{this.form.reset();}
     )
   }
 
@@ -62,9 +62,12 @@ export class ModalFormacionComponent implements OnInit {
   }
   
   onEnviar(event:Event){
-    event.preventDefault;
-    if (this.form.valid){
+    event.preventDefault();
+    if (this.form.valid)
+    {
       this.onCreate();
+      window.location.reload();
+      alert("Formacion agregada");
     }else{
       alert("falló la carga, intente de nuevo");
       this.form.markAllAsTouched();

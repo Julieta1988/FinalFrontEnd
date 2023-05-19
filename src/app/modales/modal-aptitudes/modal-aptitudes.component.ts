@@ -12,7 +12,7 @@ export class ModalAptitudesComponent implements OnInit{
   aptitud = '';
 
   constructor(private formBuilder: FormBuilder, private sAptitudes: AptitudesService){  
-    this.form=this.form=this.formBuilder.group({
+    this.form=this.formBuilder.group({
       aptitud:['',[Validators.required]]
       })
   }

@@ -7,7 +7,7 @@ import { Idioma } from '../model/idioma';
   providedIn: 'root'
 })
 export class IdiomaService {
-  url= "http://localhost:8080/idioma"
+  url= "https://finalbackend-flrz.onrender.com/idioma"
   
   constructor(private httpClient:HttpClient) { }
 

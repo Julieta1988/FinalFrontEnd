@@ -7,7 +7,7 @@ import { Persona } from '../model/persona';
   providedIn: 'root'
 })
 export class PersonaService {
-  url= "http://localhost:8080/persona"
+  url= "https://finalbackend-flrz.onrender.com/persona"
   
   constructor(private httpClient:HttpClient) { }
 

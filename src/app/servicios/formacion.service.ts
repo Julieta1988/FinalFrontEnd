@@ -7,7 +7,7 @@ import { Formacion } from '../model/formacion';
   providedIn: 'root'
 })
 export class FormacionService {
-  url= "http://localhost:8080/formacion"
+  url= "https://finalbackend-flrz.onrender.com/formacion"
   
   constructor(private httpClient:HttpClient) { }
 

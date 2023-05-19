@@ -16,8 +16,9 @@
                 {{ formacion.descripcion }} - {{ formacion.institucion }} - {{ formacion.titulo }}
               </h6>
             </div>
+            
             <div class="col-1 mt-2 container text-center">
-              <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-formacion"></i></div>
+              <!-- <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-formacion"></i></div> -->
               <!-- Modal editar y eliminar formacion-->
               <app-modal-formacion></app-modal-formacion>
               <div><i class="fa-solid fa-xmark text-black btn-close" type="button" (click)="eliminarFormacion(formacion.id)"></i></div>
