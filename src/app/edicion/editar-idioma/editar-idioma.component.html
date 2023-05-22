@@ -8,7 +8,57 @@
 
       <div class="col-8 mt-4">
         <h3>Idioma</h3><i class="fa-solid fa-plus text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-idioma"></i>
-        <app-modal-idioma></app-modal-idioma>
+        
+        <!-- Modal agregar-->
+        <div class="modal fade" id="modal-idioma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Idioma</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="limpiar()"></button>
+              </div>
+      
+              <form [formGroup]="form" name="idiomasForm">
+                <div class="modal-body">
+                
+                  <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                      <label for="idiomaIdioma" class="col-form-label">Idioma</label>
+                    </div>
+                    <div class="col-auto">
+                      <input type="text" class="form-control" id="idiomaIdioma" formControlName="idioma" [(ngModel)] = "idioma" [ngClass]="{'is-invalid': Idioma?.errors && Idioma?.touched, 'is-valid': !Idioma?.errors && Idioma?.touched}">
+                    </div>
+                    <div *ngIf="Idioma?.errors && Idioma?.touched">
+                      <p *ngIf="Idioma?.hasError('required')" class="text-danger"> El Idioma es requerida </p>
+                    </div>
+                  </div>
+        
+                  <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                      <label for="idiomaNivel" class="col-form-label">Nivel</label>
+                    </div>
+                    <div class="col-auto">
+                      <input type="text" class="form-control" id="idiomaNivel" formControlName="nivel" [(ngModel)] = "nivel" [ngClass]="{'is-invalid': Nivel?.errors && Nivel?.touched, 'is-valid': !Nivel?.errors && Nivel?.touched}">
+                    </div>
+                    <div *ngIf="Nivel?.errors && Nivel?.touched">
+                      <p *ngIf="Nivel?.hasError('required')" class="text-danger"> El Nivel es requerido </p>
+                    </div>
+                  </div>
+      
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
+                    <button type="submit" class="btn btn-primary"data-bs-dismiss="modal" (click)="onEnviar($event); ngOnInit();">Guardar</button>
+                  </div>
+      
+              </div>
+            </form>
+      
+            </div>
+          </div>
+      </div>
+        <!-- FIN Modal agregar-->
+
         <div *ngFor="let idioma of idiomas">
           <div class="row">
             <div class="col-11 mt-3" >
@@ -19,7 +69,6 @@
             <div class="col-1 mt-2 container text-center">
               <!-- <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-idioma"></i></div> -->
               <!-- Modal editar y eliminar idioma-->
-              <app-modal-idioma></app-modal-idioma>
               <div><i class="fa-solid fa-xmark text-black btn-close" type="button" (click)="eliminarIdioma(idioma.id)"></i></div>
             </div>
           </div>

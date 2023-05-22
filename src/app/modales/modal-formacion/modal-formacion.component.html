@@ -7,7 +7,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="limpiar()"></button>
         </div>
 
-        <form [formGroup]="form" name="formacionesForm">
+        <form [formGroup]="form" (ngSubmit)="form.valid && onCreate()" name="formacionesForm">
           <div class="modal-body">
 
           <div class="row g-3 align-items-center">
@@ -36,7 +36,7 @@
 
           <div class="row g-3 align-items-center">
             <div class="col-auto">
-              <label for="formacionTitulo" class="col-form-label">Duración</label>
+              <label for="formacionTitulo" class="col-form-label">Título</label>
             </div>
             <div class="col-auto">
               <input type="text" class="form-control" id="formacionTitulo" placeholder = "Título obtenido" formControlName="titulo" [(ngModel)] = "titulo" [ngClass]="{'is-invalid': Titulo?.errors && Titulo?.touched, 'is-valid': !Titulo?.errors && Titulo?.touched}">
@@ -48,7 +48,7 @@
       
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
-          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="onEnviar($event)">Guardar</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="onEnviar($event); ngOnInit();" >Guardar</button>
         </div> 
       
       </div>

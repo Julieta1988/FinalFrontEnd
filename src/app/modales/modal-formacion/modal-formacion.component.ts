@@ -52,7 +52,7 @@ export class ModalFormacionComponent implements OnInit {
   onCreate():void{
     const form = new Formacion (this.descripcion,this.institucion, this.titulo);
     this.sFormacion.agregarFormacion(form).subscribe(
-      data=>{alert("Formacion agregada");window.location.reload();},
+      data=>{alert("Formacion agregada");},
       err =>{this.form.reset();}
     )
   }
@@ -66,7 +66,6 @@ export class ModalFormacionComponent implements OnInit {
     if (this.form.valid)
     {
       this.onCreate();
-      window.location.reload();
       alert("Formacion agregada");
     }else{
       alert("falló la carga, intente de nuevo");

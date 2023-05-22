@@ -6,6 +6,7 @@ import { FormacionService } from 'src/app/servicios/formacion.service';
   selector: 'app-formacion',
   templateUrl: './formacion.component.html'
 })
+
 export class FormacionComponent implements OnInit{
   formaciones: Formacion[]=[]; 
   formacion?: number;

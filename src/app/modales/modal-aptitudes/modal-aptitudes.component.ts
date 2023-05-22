@@ -32,8 +32,8 @@ export class ModalAptitudesComponent implements OnInit{
   onCreate():void{
     const apti = new Aptitudes (this.aptitud);
     this.sAptitudes.agregarAptitudes(apti).subscribe(
-      data=>{alert("Aptitudes agregada");},
-      err =>{window.location.reload();}
+      data=>{alert("Aptitudes agregada"); window.location.reload();},
+      err =>{alert("No se puedo cargar")}
     )
   }
 

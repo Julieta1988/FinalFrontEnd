@@ -1,25 +1,86 @@
 <section id="presentacion" class="about">
   <div class="container text-center">
-  <h3>Presentación Personal</h3><i class="fa-solid fa-plus text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-presentacion"></i>
-  <app-modal-presentacion></app-modal-presentacion>
-  <div class="row" *ngFor="let persona of personas">
-      <div class="col-lg-3">
-        <img [src] = "persona.imagen" class="img-thumbnail rounded-circle w-75" alt="..." title="...">
+    <h3 class="text-white">Presentación Personal</h3><i class="fa-solid fa-plus text-white" type="button" data-bs-toggle="modal" data-bs-target="#modal-presentacion"></i>
+    
+   <!-- Modal agregar -->
+    <div class="modal fade" id="modal-presentacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Presentación</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="limpiar()"></button>
+          </div>
+          
+            
+          <form [formGroup]="form" name="personasForm">
+            <div class="modal-body">    
+              
+              <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label for="PersonaNombre" class="col-form-label">Nombre y Apellido</label>
+                </div>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="personaNombre" placeholder = "Nombre completo" formControlName="nombre" [(ngModel)] = "nombre" [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid': !Nombre?.errors && Nombre?.touched}">
+                </div>
+                <div *ngIf="Nombre?.errors && Nombre?.touched">
+                  <p *ngIf="Nombre?.hasError('required')" class="text-danger"> El nombre completo es requerido </p>
+                </div>
+              </div>
+  
+              <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label for="PersonaImagen" class="col-form-label">Imagen de Perfl</label>
+                </div>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="personaImagen" placeholder = "URL de la foto de perfil" formControlName="imagen" [(ngModel)] = "imagen" [ngClass]="{'is-invalid': Imagen?.errors && Imagen?.touched, 'is-valid': !Imagen?.errors && Imagen?.touched}">
+                </div>
+                <div *ngIf="Imagen?.errors && Imagen?.touched">
+                  <p *ngIf="Imagen?.hasError('required')" class="text-danger"> La Foto de Perfil es requerida </p>
+                </div>
+              </div>
+
+              <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label for="PersonaPresentacion" class="col-form-label">Presentacion</label>
+                </div>
+                <div class="col-auto">
+                  <textarea type="text" class="form-control" id="personaPresentacion" placeholder = "Breve presentacion personal" formControlName="presentacion" [(ngModel)] = "presentacion" [ngClass]="{'is-invalid': Presentacion?.errors && Presentacion?.touched, 'is-valid': !Presentacion?.errors && Presentacion?.touched}"></textarea>
+                </div>
+                <div *ngIf="Presentacion?.errors && Presentacion?.touched">
+                  <p *ngIf="Presentacion?.hasError('required')" class="text-danger"> La Presentacion es requerida </p>
+                </div>
+              </div>
+            
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="onEnviar($event); ngOnInit();">Guardar</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-      <div>
+    </div>
+    <!-- FIN Modal agregar -->
+
+
+
+    <div class="row" *ngFor="let persona of personas">
+        <div class="col-lg-3">
+          <img [src] = "persona.imagen" class="img-thumbnail rounded-circle w-75" alt="..." title="...">
+        </div>
         <div class="col-9 mt-5">
           <i class="text-white text-center intro wt-5 pt-5">
             <br>{{ persona.nombre }}
             <br>{{ persona.presentacion }}
           </i>
-        <div class="col-1 mt-2 container text-center">
-          <!-- <div><i class="fa-solid fa-pencil text-white" type="button" data-bs-toggle="modal" data-bs-target="#modal-presentacion"></i></div> -->
-          <div><i class="fa-solid fa-trash text-white" type="button" data-bs-toggle="modal" data-bs-target="#eliminar"></i></div>
-        </div>
-      </div>
+          <div class="col-1 mt-2 container text-center">
+            <!-- <div><i class="fa-solid fa-pencil text-white" type="button" data-bs-toggle="modal" data-bs-target="#modal-presentacion"></i></div> -->
+            <div><i class="fa-solid fa-xmark text-white btn-close" type="button" (click)="eliminarPersona(persona.id)"></i></div>
+          </div>
+        </div> 
     </div>
-    <app-modal-presentacion></app-modal-presentacion>
-  </div>
+
   </div>
 </section>
 

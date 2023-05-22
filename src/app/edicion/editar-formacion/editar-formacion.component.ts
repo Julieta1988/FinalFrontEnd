@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Formacion } from 'src/app/model/formacion';
 import { FormacionService} from 'src/app/servicios/formacion.service';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -10,8 +11,18 @@ import { FormacionService} from 'src/app/servicios/formacion.service';
 export class EditarFormacionComponent implements OnInit{
   formaciones: Formacion[]=[]; 
   formacion?: number;
+  form : FormGroup;
+  descripcion = '';
+  institucion = '';
+  titulo = '';
 
-  constructor(private sFormacion: FormacionService) { }
+  constructor(private formBuilder: FormBuilder, private sFormacion: FormacionService){  
+    this.form=this.formBuilder.group({
+      descripcion:['',[Validators.required]],
+      institucion:['',[Validators.required]],
+      titulo:['',[Validators.required]]
+      })
+  }
 
   ngOnInit(): void {
     this.cargarFormacion();
@@ -29,30 +40,62 @@ export class EditarFormacionComponent implements OnInit{
   eliminarFormacion(id:number){
     if(id != undefined){
       this.sFormacion.eliminarFormacion(id).subscribe(data => {
-        window.location.reload();
+        this.ngOnInit();
       }, err => {
-          window.location.reload();
+          this.ngOnInit();
         }
         );
     } 
   }
+  //Declarar para las validaciones
+  get Descripcion(){
+    return this.form.get("descripcion");
+  }
 
-  // eliminarFormacion(id:number){
-  //   if(id != undefined){
-  //     this.sFormacion.eliminarFormacion(id).subscribe(data => {
-  //       this.cargarFormacion();  
-  //     }, err => {
-  //         window.location.reload();
-  //       }
-  //       );
-  //   } 
-  // }
+  get Institucion(){
+    return this.form.get("institucion");
+  }
 
-  // eliminarFormacion(id:number){
-  //   this.sFormacion.eliminarFormacion(id).subscribe(data => {
-  //     window.location.reload();
-  //     alert("Formacion eliminada");
-  //     });
-  //   } 
+  get Titulo(){
+    return this.form.get("titulo");
+  }
 
+  //Validaciones
+  get DescripcionValid(){
+    return this.Descripcion?.touched && !this.Descripcion.valid;
+  }
+
+  get InstitucionValid(){
+    return this.Institucion?.touched && !this.Institucion?.valid;
+  }
+
+  get TituloValid(){
+    return this.Titulo?.touched && !this.Titulo.valid;
+  }
+
+  onCreate():void{
+    const form = new Formacion (this.descripcion,this.institucion, this.titulo);
+    this.sFormacion.agregarFormacion(form).subscribe(
+      data=>{alert("Formacion agregada");this.ngOnInit();},
+      err =>{this.form.reset();this.ngOnInit();}
+    )
+  }
+
+  limpiar():void{
+    this.form.reset();
+  }
+  
+  onEnviar(event:Event){
+    event.preventDefault();
+    if (this.form.valid){
+      this.onCreate();
+      alert("Formacion agregada");
+      this.ngOnInit();
+    }
+    else{
+      alert("falló la carga, intente de nuevo");
+      this.form.markAllAsTouched();
+      this.ngOnInit();
+    }
+  }
 }
