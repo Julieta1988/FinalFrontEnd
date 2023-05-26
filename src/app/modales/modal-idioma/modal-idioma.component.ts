@@ -42,8 +42,8 @@ export class ModalIdiomaComponent implements OnInit{
   onCreate():void{
     const idio = new Idioma (this.idioma,this.nivel);
     this.sIdioma.agregarIdioma(idio).subscribe(
-      data=>{alert("Idioma agregada");},
-      err =>{window.location.reload();}
+      data=>{alert("Idioma agregado");},
+      err =>{alert("falló la carga");}
     )
   }
 
@@ -55,9 +55,12 @@ export class ModalIdiomaComponent implements OnInit{
     event.preventDefault;
     if (this.form.valid){
       this.onCreate();
+      alert("Idioma Agregado");
+      this.ngOnInit();
     }else{
       alert("falló la carga, intente de nuevo");
       this.form.markAllAsTouched();
+      this.ngOnInit();
     }
   }
 }

@@ -6,6 +6,7 @@ import { ExperienciaService } from 'src/app/servicios/experiencia.service';
   selector: 'app-experiencia',
   templateUrl: './experiencia.component.html'
 })
+
 export class ExperienciaComponent implements OnInit{
   experiencias: Experiencia[]=[]; 
   experiencia?: number;

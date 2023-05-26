@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-8 mt-4">
         <h3>Conocimientos y aptitudes</h3><i class="fa-solid fa-plus text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-aptitudes"></i>
-        <!-- Modal agregar-->
+      
         <div class="modal fade" id="modal-aptitudes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
            
@@ -14,7 +14,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="limpiar()"></button>
               </div>
       
-                <form [formGroup]="form" (ngSubmit)="form.valid && onCreate()" name="aptitudesForm">
+                <form [formGroup]="form" name="aptitudesForm">
                   <div class="modal-body">
       
                     <div class="row g-3 align-items-center">
@@ -38,7 +38,7 @@
             </div>
           </div>
         </div>      
-        <!-- FIN Modal agregar-->
+
         <div *ngFor="let aptitud of aptitudes">
           <div class="row">
             <div class="col-11 mt-3" >
@@ -49,8 +49,6 @@
         
             <div class="col-1 mt-2 container text-center">
               <!-- <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-aptitudes"></i></div> -->
-              
-              
               <div><i class="fa-solid fa-xmark text-black btn-close" type="button" (click)="eliminarAptitudes(aptitud.id)"></i></div>
             </div>
           </div>
@@ -61,4 +59,4 @@
       </div>  
     </div>
   </div>
-</section>  
+</section>

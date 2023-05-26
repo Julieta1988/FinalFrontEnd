@@ -36,7 +36,6 @@ export class EditarFormacionComponent implements OnInit{
     this.formacion = id;
   }
 
-
   eliminarFormacion(id:number){
     if(id != undefined){
       this.sFormacion.eliminarFormacion(id).subscribe(data => {
@@ -75,10 +74,7 @@ export class EditarFormacionComponent implements OnInit{
 
   onCreate():void{
     const form = new Formacion (this.descripcion,this.institucion, this.titulo);
-    this.sFormacion.agregarFormacion(form).subscribe(
-      data=>{alert("Formacion agregada");this.ngOnInit();},
-      err =>{this.form.reset();this.ngOnInit();}
-    )
+    this.sFormacion.agregarFormacion(form).subscribe()
   }
 
   limpiar():void{
@@ -87,15 +83,15 @@ export class EditarFormacionComponent implements OnInit{
   
   onEnviar(event:Event){
     event.preventDefault();
-    if (this.form.valid){
+    if (this.form.valid)
+    {
       this.onCreate();
       alert("Formacion agregada");
-      this.ngOnInit();
-    }
-    else{
+    }else{
       alert("falló la carga, intente de nuevo");
       this.form.markAllAsTouched();
-      this.ngOnInit();
     }
+    this.ngOnInit();
+    this.limpiar();
   }
 }

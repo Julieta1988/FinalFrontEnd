@@ -50,7 +50,7 @@ export class ModalPresentacionComponent  implements OnInit {
   }
 
   onCreate():void{
-    const prese = new Persona (this.nombre,this.imagen,this.presentacion);
+    const prese = new Persona (this.nombre,this.imagen, this.presentacion);
     this.sPersona.agregarPersona(prese).subscribe(
       data=>{alert("Persona agregada");window.location.reload();},
       err =>{this.form.reset()}

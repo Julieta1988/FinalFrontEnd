@@ -4,10 +4,10 @@
     <div class="row">
       <div class="col-8 mt-4">
         <h3>Experiencia laboral</h3><i class="fa-solid fa-plus text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-experiencia"></i>
-        
 
         <div class="modal fade" id="modal-experiencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
+
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Experiencia Laboral</h1>
@@ -22,9 +22,7 @@
                       <label for="experienciaEmpresa" class="col-form-label">Empresa</label>
                     </div>
                     <div class="col-auto">
-                      <input type="text" class="form-control" id="experienciaEmpresa" placeholder="Nombre de la empresa"
-                        formControlName="empresa" [(ngModel)]="empresa"
-                        [ngClass]="{'is-invalid': Empresa?.errors && Empresa?.touched, 'is-valid': !Empresa?.errors && Empresa?.touched}">
+                      <input type="text" class="form-control" id="experienciaEmpresa" placeholder="Nombre de la empresa" formControlName="empresa" [(ngModel)]="empresa" [ngClass]="{'is-invalid': Empresa?.errors && Empresa?.touched, 'is-valid': !Empresa?.errors && Empresa?.touched}">
                     </div>
                     <div *ngIf="Empresa?.errors && Empresa?.touched">
                       <p *ngIf="Empresa?.hasError('required')" class="text-danger"> La Empresa es requerida </p>
@@ -36,9 +34,7 @@
                       <label for="experienciaPuesto" class="col-form-label">Puesto</label>
                     </div>
                     <div class="col-auto">
-                      <input type="text" class="form-control" id="experienciaPuesto" placeholder="Puesto laboral"
-                        formControlName="puesto" [(ngModel)]="puesto"
-                        [ngClass]="{'is-invalid': Puesto?.errors && Puesto?.touched, 'is-valid': !Puesto?.errors && Puesto?.touched}">
+                      <input type="text" class="form-control" id="experienciaPuesto" placeholder="Puesto laboral" formControlName="puesto" [(ngModel)]="puesto" [ngClass]="{'is-invalid': Puesto?.errors && Puesto?.touched, 'is-valid': !Puesto?.errors && Puesto?.touched}">
                     </div>
                     <div *ngIf="Puesto?.errors && Puesto?.touched">
                       <p *ngIf="Puesto?.hasError('required')" class="text-danger"> El Puesto laboral es requerido </p>
@@ -50,9 +46,7 @@
                       <label for="experienciaDuracion" class="col-form-label">Duración</label>
                     </div>
                     <div class="col-auto">
-                      <input type="text" class="form-control" id="experienciaDuracion"
-                        placeholder="Cuánto tiempo duró esta experiencia" formControlName="duracion" [(ngModel)]="duracion"
-                        [ngClass]="{'is-invalid': Duracion?.errors && Duracion?.touched, 'is-valid': !Duracion?.errors && Duracion?.touched}">
+                      <input type="text" class="form-control" id="experienciaDuracion" placeholder="Cuánto tiempo duró esta experiencia" formControlName="duracion" [(ngModel)]="duracion" [ngClass]="{'is-invalid': Duracion?.errors && Duracion?.touched, 'is-valid': !Duracion?.errors && Duracion?.touched}">
                     </div>
                     <div *ngIf="Duracion?.errors && Duracion?.touched">
                       <p *ngIf="Duracion?.hasError('required')" class="text-danger"> La duración de esta experiencia es
@@ -95,12 +89,10 @@
                 
                 </div>
               </form>
-        
-                
+
             </div>
           </div>
-        </div>
-        
+        </div>    
 
         <div *ngFor="let experiencia of experiencias">
           <div class="row">
@@ -110,9 +102,8 @@
               </h6>
             </div>
             
-            <div class="col-1 mt-2 container text-center">
+            <div class="col-1 mt-2 container text-center">          
               <!-- <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-experiencia"></i></div> -->
-              <!-- Modal editar experiencia-->
               <app-modal-experiencia></app-modal-experiencia>
               <div><i class="fa-solid fa-xmark text-black btn-close" type="button" (click)="eliminarExperiencia(experiencia.id)"></i></div>
             </div>

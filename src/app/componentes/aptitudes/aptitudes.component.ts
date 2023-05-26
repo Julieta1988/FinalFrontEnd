@@ -6,6 +6,7 @@ import { AptitudesService } from 'src/app/servicios/aptitudes.service';
   selector: 'app-aptitudes',
   templateUrl: './aptitudes.component.html'
 })
+
 export class AptitudesComponent implements OnInit{
   aptitudes: Aptitudes[]=[]; 
   aptitud?: number;

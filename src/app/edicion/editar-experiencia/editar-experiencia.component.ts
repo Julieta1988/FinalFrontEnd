@@ -93,10 +93,7 @@ export class EditarExperienciaComponent implements OnInit{
 
    onCreate():void{
     const expe = new Experiencia (this.empresa,this.puesto, this.duracion, this.inicio, this.fin);
-    this.sExperiencia.agregarExperiencia(expe).subscribe(
-      data=>{alert("Experiencia agregada");this.ngOnInit();},
-      err =>{this.form.reset();this.ngOnInit();}
-    )
+    this.sExperiencia.agregarExperiencia(expe).subscribe()
   }
 
   limpiar():void{
@@ -109,12 +106,12 @@ export class EditarExperienciaComponent implements OnInit{
     {
       this.onCreate();
       alert("Experiencia agregada");
-      this.ngOnInit();
     }else{
       alert("falló la carga, intente de nuevo");
       this.form.markAllAsTouched();
-      this.ngOnInit();
     }
+    this.ngOnInit();
+    this.limpiar();
   }
 
 }

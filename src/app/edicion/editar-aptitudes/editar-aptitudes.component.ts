@@ -42,7 +42,6 @@ export class EditarAptitudesComponent implements OnInit{
     } 
   }
 
-
   //Declarar para las validaciones
   get Aptitud(){
     return this.form.get("aptitud");
@@ -55,10 +54,7 @@ export class EditarAptitudesComponent implements OnInit{
 
   onCreate():void{
     const apti = new Aptitudes (this.aptitud);
-    this.sAptitudes.agregarAptitudes(apti).subscribe(
-      data=>{alert("Aptitud agregada");this.ngOnInit();},
-      err =>{this.form.reset();}
-    )
+    this.sAptitudes.agregarAptitudes(apti).subscribe()
   }
 
   limpiar():void{
@@ -70,11 +66,12 @@ export class EditarAptitudesComponent implements OnInit{
     if (this.form.valid){
       this.onCreate();
       alert("Aptitud agregada");
-      this.ngOnInit();
     }else{
       alert("falló la carga, intente de nuevo");
       this.form.markAllAsTouched();
     }
+    this.ngOnInit();
+    this.limpiar();
   }
 
 }

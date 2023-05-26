@@ -1,4 +1,65 @@
 <div class="modal fade" id="modal-formacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Formación académica</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="limpiar()"></button>
+      </div>
+
+      <form [formGroup]="form" name="formacionesForm">
+        <div class="modal-body">
+
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="formacionDescripcion" class="col-form-label">Descripcion</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="formacionDescripcion" placeholder = "Descripcion" formControlName="descripcion" [(ngModel)] = "descripcion" [ngClass]="{'is-invalid': Descripcion?.errors && Descripcion?.touched, 'is-valid': !Descripcion?.errors && Descripcion?.touched}">
+          </div>
+          <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+            <p *ngIf="Descripcion?.hasError('required')" class="text-danger"> La Descripcion es requerida </p>
+          </div>
+        </div>
+
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="formacionInstitucion" class="col-form-label">Institucion</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="formacionInstitucion" placeholder = "Institucion" formControlName="institucion" [(ngModel)] = "institucion" [ngClass]="{'is-invalid': Institucion?.errors && Institucion?.touched, 'is-valid': !Institucion?.errors && Institucion?.touched}">
+          </div>
+          <div *ngIf="Institucion?.errors && Institucion?.touched">
+            <p *ngIf="Institucion?.hasError('required')" class="text-danger"> La Institucion es requerida </p>
+          </div>
+        </div>
+
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="formacionTitulo" class="col-form-label">Duración</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="formacionTitulo" placeholder = "Título obtenido" formControlName="titulo" [(ngModel)] = "titulo" [ngClass]="{'is-invalid': Titulo?.errors && Titulo?.touched, 'is-valid': !Titulo?.errors && Titulo?.touched}">
+          </div>
+          <div *ngIf="Titulo?.errors && Titulo?.touched">
+            <p *ngIf="Titulo?.hasError('required')" class="text-danger"> El Título obtenido es requerido </p>
+          </div>
+        </div>
+    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="onEnviar($event)">Guardar</button>
+      </div> 
+    
+    </div>
+    </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- origin, clone arriba 
+  <div class="modal fade" id="modal-formacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       
       <div class="modal-content">
@@ -56,4 +117,4 @@
 
       </div>
     </div>
-</div>
+</div> -->

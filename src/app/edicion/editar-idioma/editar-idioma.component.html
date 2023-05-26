@@ -9,7 +9,6 @@
       <div class="col-8 mt-4">
         <h3>Idioma</h3><i class="fa-solid fa-plus text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-idioma"></i>
         
-        <!-- Modal agregar-->
         <div class="modal fade" id="modal-idioma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             
@@ -57,7 +56,6 @@
             </div>
           </div>
       </div>
-        <!-- FIN Modal agregar-->
 
         <div *ngFor="let idioma of idiomas">
           <div class="row">
@@ -67,8 +65,7 @@
               </h6>
             </div>
             <div class="col-1 mt-2 container text-center">
-              <!-- <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-idioma"></i></div> -->
-              <!-- Modal editar y eliminar idioma-->
+               <!-- <div><i class="fa-solid fa-pencil text-black" type="button" data-bs-toggle="modal" data-bs-target="#modal-idioma"></i></div> -->
               <div><i class="fa-solid fa-xmark text-black btn-close" type="button" (click)="eliminarIdioma(idioma.id)"></i></div>
             </div>
           </div>

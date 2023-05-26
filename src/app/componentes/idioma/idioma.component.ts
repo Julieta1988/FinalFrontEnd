@@ -6,6 +6,7 @@ import { IdiomaService } from 'src/app/servicios/idioma.service';
   selector: 'app-idioma',
   templateUrl: './idioma.component.html'
 })
+
 export class IdiomaComponent implements OnInit{
   idiomas: Idioma[]=[]; 
   idioma?: number;

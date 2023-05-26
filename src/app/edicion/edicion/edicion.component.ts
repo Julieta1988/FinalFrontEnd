@@ -1,9 +1,26 @@
-import { Component } from '@angular/core';
+// import { Component } from '@angular/core';
+
+// @Component({
+//   selector: 'app-edicion',
+//   templateUrl: './edicion.component.html'
+// })
+
+// export class EdicionComponent {
+
+// }
+
+
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-edicion',
   templateUrl: './edicion.component.html'
 })
-export class EdicionComponent {
+export class EdicionComponent  implements OnInit {
+  
+  constructor() {}
 
+  ngOnInit(): void{
+
+  }  
 }
